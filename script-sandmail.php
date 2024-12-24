@@ -6,14 +6,16 @@
         header("location: http://$server/chat.php");
         exit;
     }
-  
-    if ($_POST['subject'] == 1){
-        $subject = 'Вопрос по чату';
-    } elseif ($_POST['subject'] == 2) {
-        $subject = 'Личный вопрос';
-    } elseif ($_POST['subject'] == 3) {
-        $subject = 'Благодарность';
-    }else{
+
+    if (isset($_POST['subject'])) {
+        if ($_POST['subject'] == 1) {
+            $subject = 'Вопрос по чату';
+        } elseif ($_POST['subject'] == 2) {
+            $subject = 'Личный вопрос';
+        } elseif ($_POST['subject'] == 3) {
+            $subject = 'Благодарность';
+        }
+    } else {
         $subject = 'Вопрос по чату';
     }
 
@@ -38,6 +40,6 @@
 
 ?>
 
-<a href=<?php echo "http://$server/chat.php";?>>вернуться в чат</a>
-<br><br>
-<a href=<?php echo "http://$server/revier.php";?>>А давайка еще отправим сообщение</a>
+    <a href=<?php echo "http://$server/chat.php"; ?>>вернуться в чат</a>
+    <br><br>
+    <a href=<?php echo "http://$server/review.php"; ?>>А давайка еще отправим сообщение</a>
